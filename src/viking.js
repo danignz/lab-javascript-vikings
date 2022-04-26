@@ -49,7 +49,35 @@ class Saxon extends Soldier{
 }
 
 // War
-class War {}
+class War {
+
+  constructor() {
+    this.vikingArmy = [];
+    this.saxonArmy = [];
+  }
+  
+  addViking(vickingObject){
+    this.vikingArmy.push(vickingObject);
+  }
+
+  addSaxon(saxonObject){
+    this.saxonArmy.push(saxonObject);
+  }
+
+  vikingAttack(){
+
+  }
+
+  saxonAttack(){
+
+  }
+
+  showStatus(){
+
+  }
+
+
+}
 
 
 
@@ -82,7 +110,19 @@ console.log(saxonMikel.receiveDamage(50));
 console.log(saxonMikel.receiveDamage(150));
 console.log(saxonMikel.health);
 
+//const viking = generateViking();
+//constsaxon = generateSaxon();
+const war = new War();
+console.log(war.vikingArmy, war.saxonArmy);
 
+war.addViking(vikingLauri);
+war.addViking(vikingLauri);
+war.addViking(vikingLauri);
+console.log(war.vikingArmy);
+war.addSaxon(saxonMikel);
+war.addSaxon(saxonMikel);
+war.addSaxon(saxonMikel);
+console.log(war.saxonArmy);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
