@@ -40,15 +40,15 @@ class Saxon extends Soldier{
 
   receiveDamage(damage){
 
-    this.health = this.health - damage;
+      this.health = this.health - damage;
 
-    if(this.health > 0){
-      return `A Saxon has received ${damage} points of damage`;
-    }else{
-      return `A Saxon has died in combat`;
+      if(this.health > 0){
+        return `A Saxon has received ${damage} points of damage`;
+      }else{
+        return `A Saxon has died in combat`;
+      }
     }
   }
-}
 
 // War
 class War {
@@ -78,7 +78,6 @@ class War {
     }
 
     return resultVikAt; 
-
   }
 
   saxonAttack(){
@@ -93,98 +92,56 @@ class War {
     }
 
     return resultSaxAt; 
-
   }
 
   showStatus(){
-
+    
+    if (this.saxonArmy.length === 0){
+      return "Vikings have won the war of the century!";
+    }else if (this.vikingArmy.length === 0){
+      return "Saxons have fought for their lives and survived another day...";
+    } else if (this.vikingArmy.length >= 1 && this.saxonArmy.length >= 1 ){
+      return "Vikings and Saxons are still in the thick of battle.";
+    }
   }
 
+}
 
-}  
-
- 
-/*
-const strength = 150;
-const health = 300;
-const soldierManolo = new Soldier(health, strength);
-console.log(soldierManolo.attack());*/ 
-
+//Creation of war object
 const war = new War();
 
-war.addViking(new Viking('Harald', 290, 105));
+//Definition of Soldiers
+war.addViking(new Viking('Hara', 290, 205));
 war.addViking(new Viking('Lars', 300, 120));
-war.addViking(new Viking('Thor', 230, 100));
+war.addViking(new Viking('Thor', 230, 180));
 war.addViking(new Viking('Olaf', 250, 230));
 war.addViking(new Viking('Ivar', 270, 160));
-//war.addViking(new Viking('Jorgen', 210, 190));
-//war.addViking(new Viking('Bjorn', 210, 200));
-//war.addViking(new Viking('Einar', 350, 160));
-//war.addViking(new Viking('Niels', 310, 120));
-//war.addViking(new Viking('Hans', 370, 250));;
-war.addSaxon(new Saxon(300, 50));
-war.addSaxon(new Saxon(210, 120));
-war.addSaxon(new Saxon(210, 102));
-war.addSaxon(new Saxon(270, 101));
-war.addSaxon(new Saxon(190, 70));
-//war.addSaxon(new Saxon(230, 200));
-//war.addSaxon(new Saxon(210, 80));
-//war.addSaxon(new Saxon(150, 150));
-//war.addSaxon(new Saxon(180, 90));
-//war.addSaxon(new Saxon(170, 80));
+war.addSaxon(new Saxon(200, 90));
+war.addSaxon(new Saxon(160, 120));
+war.addSaxon(new Saxon(150, 152));
+war.addSaxon(new Saxon(270, 151));
+war.addSaxon(new Saxon(190, 270));
 
-//Initial army 
+//Initial army arrays
 console.log(war.vikingArmy, war.saxonArmy);
 
-console.log(war.vikingAttack());
- 
-console.log(war.saxonAttack());
+//Starts Battle
 console.log(war.vikingAttack());
 console.log(war.saxonAttack());
-console.log(war.saxonAttack());
-console.log(war.saxonAttack());
-console.log(war.saxonAttack());
-console.log(war.saxonAttack());
-/* 
-
-
 console.log(war.vikingAttack());
+console.log(war.saxonAttack());
+console.log(war.vikingAttack());
+console.log(war.saxonAttack());
+console.log(war.vikingAttack());
+console.log(war.saxonAttack());
+console.log(war.vikingAttack());
+console.log(war.saxonAttack());
+console.log(war.vikingAttack());
+console.log(war.saxonAttack());
 
-*/
+//Status of battle
+console.log(war.showStatus());
 
-/*
-console.log(vikingLauri.attack());
-console.log(vikingLauri.receiveDamage(150));
-console.log(vikingLauri.receiveDamage(150));
-console.log(vikingLauri.receiveDamage(150));
-console.log(vikingLauri.health);
-console.log(vikingLauri.battleCry());
-*/
-
-/*
-const health3 = 60;
-const strength3 = 25;
-const saxonMikel = new Saxon(health3, strength3);
-console.log(saxonMikel.attack());
-console.log(saxonMikel.health);
-console.log(saxonMikel.receiveDamage(50));
-console.log(saxonMikel.receiveDamage(150));
-console.log(saxonMikel.health);
-*/
-//const viking = generateViking();
-//constsaxon = generateSaxon();
-
-/*
-
-war.addSaxon(saxonMikel);
-war.addSaxon(saxonMikel);
-war.addSaxon(saxonMikel);
-console.log(war.saxonArmy);
-war.vikingAttack();
-war.vikingAttack();
-war.vikingAttack();
-
-*/
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
