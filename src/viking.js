@@ -66,8 +66,26 @@ class War {
     this.saxonArmy.push(saxonObject);
   }
 
+  attack(attackerArmy, victimArmy){
+
+     /* SUPER BONUS ITERATION 5 REFACTOR */
+    const randomAttackerIndex = Math.floor(Math.random() * attackerArmy.length);
+    const randomVictimArmyIndex = Math.floor(Math.random() * victimArmy.length);
+    
+    const resultAt = victimArmy[randomVictimArmyIndex].receiveDamage(attackerArmy[randomAttackerIndex].strength);
+
+    if (victimArmy[randomVictimArmyIndex].health < 0){
+          victimArmy.splice(randomVictimArmyIndex, 1);
+    }
+
+    return resultAt;  
+  }
+  
   vikingAttack(){
 
+    return this.attack(this.vikingArmy, this.saxonArmy);
+
+    /* Comment due SUPER BONUS ITERATION 5 REFACTOR
     const randomVickingIndex = Math.floor(Math.random() * this.vikingArmy.length); // max = Random numbers between 0 and ( this.vikingArmy-1)
     const randomSaxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
     
@@ -77,11 +95,14 @@ class War {
       this.saxonArmy.splice(randomSaxonIndex, 1);
     }
 
-    return resultVikAt; 
+    return resultVikAt; */
   }
 
   saxonAttack(){
 
+    return this.attack(this.saxonArmy, this.vikingArmy);
+
+    /* Comment due SUPER BONUS ITERATION 5 REFACTOR
     const randomVickingIndex = Math.floor(Math.random() * this.vikingArmy.length); // max = Random numbers between 0 and ( this.vikingArmy-1)
     const randomSaxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
     
@@ -91,7 +112,7 @@ class War {
       this.vikingArmy.splice(randomVickingIndex, 1);
     }
 
-    return resultSaxAt; 
+    return resultSaxAt; */
   }
 
   showStatus(){
